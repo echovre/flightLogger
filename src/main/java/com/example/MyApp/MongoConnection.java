@@ -33,7 +33,7 @@ public class MongoConnection {
 	}
 	
 
-	public boolean writeRecord(String uuid, String body) {
+	public boolean writeRecord(String uuid, Object body) {
 		if(uuid==null) {
 			System.out.println("No UUID passed, returning");
 			return false;
@@ -54,6 +54,18 @@ public class MongoConnection {
 		if( cursor.hasNext() ) {
 			DBObject obj = cursor.next();
 			String body=obj.get("body").toString();
+			return body;
+		}
+		return null;
+	}
+	
+	public Object findRecordObj(String uuid) {
+		BasicDBObject whereQuery = new BasicDBObject();
+		whereQuery.put("uuid", uuid);
+		DBCursor cursor = collection.find(whereQuery);
+		if( cursor.hasNext() ) {
+			DBObject obj = cursor.next();
+			Object body=obj.get("body");
 			return body;
 		}
 		return null;

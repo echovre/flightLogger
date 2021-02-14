@@ -15,14 +15,11 @@ You'll also need a MongoDB instance for persistence at localhost:27017
 ```
 ./mvnw spring-boot:run
 
-curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"body":"somestring long form of data"}' http://localhost:8080/request
+curl -X POST -H "Content-Type: application/json" --data @logfile.json http://localhost:8080/log 
 
-curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d 'STARTED' http://localhost:8080/callback/<UUID>
+curl -X GET http://localhost:8080/log/73f52e9a-247f-43d5-9501-173bff715ba2
 
-curl -H "Accept: application/json" -H "Content-type: application/json" -X PUT -d '{"status":"COMPLETED","detail":"blah"}' http://localhost:8080/callback/<UUID>
-
-curl -H "Accept: application/json" -H "Content-type: application/json" -X GET http://localhost:8080/status/<UUID>
-
+curl -X GET http://localhost:8080/log/73f52e9a-247f-43d5-9501-173bff715ba2/batteryconsumed
 ```
 To see database entries:
 

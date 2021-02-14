@@ -1,0 +1,46 @@
+
+
+// http://localhost:8080/greeting?name=blah
+//./mvnw spring-boot:run
+
+//fix mongodb issue
+//sudo chown mongodb:mongodb mongodb-27017.sock
+
+//mvn clean install
+//mvn -N io.takari:maven:wrapper
+
+As a Drone Pilot, I want to upload a drone logfile so I can store it for later analysis.
+Acceptance Criteria:
+1. I can make a RESTful request to the server that contains the sample logfile using
+software such as Postman.
+2. My logfile is stored in its entirety on the server.
+3. The request returns a unique identifier to later retrieve the logfile.
+=================================================
+
+As a Drone Pilot, I want to know my starting and ending battery voltages so that I know
+how much of the battery was consumed during a flight.
+Acceptance Criteria:
+1. I can make a restful GET request to the server to obtain the starting and ending voltages
+in JSON using software such as Postman.
+2. If I use an identifier that doesn’t exist, I receive an error that tells me the file doesn’t
+exist.
+The starting and ending battery voltages can be found by looking at the values in the oldest and
+newest event, such as ​ battery_charge​ , ​ battery_voltage​ , or even ​ remaining_life ​ (your choice).
+===================================================
+
+As a Drone Pilot, I want to retrieve my logfile so that I can import it to other third party
+services.
+Acceptance Criteria:
+1. I can make a restful GET request to the server to obtain my original logfile. 2. If I
+use an identifier that doesn’t exist, I receive an error that tells me the file doesn’t exist.
+
+=====================================================
+
+https://spring.io/guides/gs/testing-web/
+https://spring.io/guides/gs/rest-hateoas/
+https://spring.io/guides/tutorials/rest/
+
+postman:
+abravada
+abravada@gmail.com
+postmanpassword
